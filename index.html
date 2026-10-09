@@ -561,6 +561,10 @@
                     <div id="data-management" style="display: none; margin-top: 10px;">
                         <button onclick="exportData()" style="padding: 10px 16px; background: #28a745; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 500; margin-right: 10px;">💾 백업</button>
                         <button onclick="handleRestore()" style="padding: 10px 16px; background: #007bff; color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 500;">📂 복원</button>
+                        <div onclick="navigator.clipboard.writeText('fbi1588@hanmail.net').then(()=>alert('이메일 주소가 복사됐어요 📋'))" style="margin-top: 10px; padding: 10px 16px; background: #2a2a3e; border: 1px solid #ff6b35; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #ff6b35; font-size: 12px;">✉️ 문의 · fbi1588@hanmail.net</span>
+                            <span style="color: #999; font-size: 11px;">📋</span>
+                        </div>
                     </div>
                 </div>
                 <div class="history-section" id="history-section" style="display: none;">
@@ -870,6 +874,9 @@
                     <div class="result-details">
                         <span>${product.brandName} ${product.volume > 0 ? product.volume + (product.unit || 'ml') : ''}</span>
                         <span>${product.price > 0 ? product.price + '원' : '가격정보 없음'}</span>
+                    </div>
+                    <div class="result-details" style="margin-top: 4px; color: #888;">
+                        <span>📅 ${product.createdAt || '날짜 없음'}</span>
                     </div>
                     ${product.quantityUnitPrice > 0 ? `<div class="result-details" style="margin-top: 8px; color: #28a745; font-weight: 600;"><span>개당 금액: ${product.quantityUnitPrice}원/개</span><span>${product.quantity > 0 ? product.quantity + '개 ' + product.quantityPrice + '원' : ''}</span></div>` : ''}
                     <div class="result-actions">
